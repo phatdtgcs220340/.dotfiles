@@ -8,6 +8,8 @@ return {
     { import = "plugins.telescope" },
     { import = "plugins.cmp" },
     { import = "plugins.treesitter" },
+    { import = "plugins.kanagawa" },
+    { import = "plugins.render-markdown" },
     { "saadparwaiz1/cmp_luasnip" },
     { "rafamadriz/friendly-snippets" },
     { "williamboman/mason.nvim" },

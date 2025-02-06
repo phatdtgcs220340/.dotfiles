@@ -1,4 +1,4 @@
-# If you come from bash you might have to change your $PATH.
+# I  you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your Oh My Zsh installation.
@@ -105,12 +105,12 @@ source $ZSH/oh-my-zsh.sh
 #
 alias cat='batcat'
 alias cdw='cd /mnt/c/Users/Admin/'
-alias eal='vim ~/.zshrc'
+alias eal='nvim ~/.dotfiles/.zshrc'
 alias lal='source ~/.zshrc'
 alias v='nvim'
 alias kubeknx='kubectl get pods -n mb --kubeconfig ~/.kube/kube-config_knx-gke-staging-use1.yaml'
 alias chjdk='sudo update-alternatives --config java'
-alias ev='nvim ~/.config/nvim/.'
+alias ev='nvim ~/.dotfiles/nvim/.'
 alias mbb='cd ~/knorex/xdsp-dsp-cms-server'
 alias mbf='cd ~/knorex/xdsp-dsp-cms-ui'
 alias lms='cd ~/workspace/lms-server'
@@ -124,4 +124,3 @@ alias xcp='xclip -selection clipboard'
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-alias dotfiles='/usr/bin/git --git-dir=/home/phatdo-wsl/.dotfiles/ --work-tree=/home/phatdo-wsl'
