@@ -20,3 +20,5 @@ keymap("n", "<Leader>tc", ":tabclose<CR>", opts)
 keymap("n", "<C-s>", ":w<CR>", opts)
 keymap("n", "<Leader>Q", ":qa!<CR>", opts)
 
+-- Open new tab and class, function, variable definition
+keymap("n", "<C-]>", ":tab split<CR>g<C-]>", opts)
