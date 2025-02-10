@@ -113,7 +113,9 @@ alias chjdk='sudo update-alternatives --config java'
 alias ev='nvim ~/.dotfiles/nvim/.'
 alias mbb='cd ~/knorex/xdsp-dsp-cms-server'
 alias mbf='cd ~/knorex/xdsp-dsp-cms-ui'
-alias lms='cd ~/workspace/lms-server'
+alias lmsbe='cd ~/workspace/lms-server'
+alias lmsfe='cd ~/workspace/lms-client'
+
 # docker build
 alias dcu='docker compose up'
 alias dcub='docker compose up --build'
@@ -124,3 +126,7 @@ alias xcp='xclip -selection clipboard'
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+alias nvkm='cat ~/.dotfiles/nvim/lua/core/keymaps.lua'
+alias tma='tmux a -t'
+alias tmn='tmux new -s'
+alias stm='tmux source-file ~/.tmux.conf'
