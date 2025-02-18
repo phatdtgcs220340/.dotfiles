@@ -22,3 +22,6 @@ keymap("n", "<Leader>Q", ":qa!<CR>", opts)
 
 -- Open new tab and class, function, variable definition
 keymap("n", "<C-]>", ":tab split<CR>g<C-]>", opts)
+
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { desc = "Format Code" })
+
