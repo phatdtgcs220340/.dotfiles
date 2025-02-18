@@ -8,20 +8,22 @@ keymap("n", "<Leader>e", ":NvimTreeToggle<CR>", opts)
 keymap("v", "<Leader>y", '"+y', opts)
 
 -- Telescope
-keymap("n", "<Leader>fg", ":tabnew<CR>:Telescope live_grep<CR>", opts)
-keymap("n", "<Leader>ff", ":tabnew<CR>:Telescope find_files<CR>", opts)
+keymap("n", "<Leader>fg", ":enew<CR>:Telescope live_grep<CR>", opts)
+keymap("n", "<Leader>ff", ":enew<CR>:Telescope find_files<CR>", opts)
 
 -- Tabs
-keymap("n", "<S-Right>", ":tabnext<CR>", opts)
-keymap("n", "<S-Left>", ":tabprevious<CR>", opts)
-keymap("n", "<Leader>tc", ":tabclose<CR>", opts)
+keymap("n", "<S-Right>", ":BufferLineCycleNext<CR>", opts)  -- Move to next buffer
+keymap("n", "<S-Left>", ":BufferLineCyclePrev<CR>", opts)   -- Move to previous buffer
 
+-- Close Current Buffer
+keymap("n", "<Leader>tc", ":bdelete<CR>", opts)  -- Close buffer instead of tab
+keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<S-l>", ":bnext<CR>", opts)
 -- Save and quit
 keymap("n", "<C-s>", ":w<CR>", opts)
 keymap("n", "<Leader>Q", ":qa!<CR>", opts)
 
 -- Open new tab and class, function, variable definition
-keymap("n", "<C-]>", ":tab split<CR>g<C-]>", opts)
+keymap("n", "<C-]>", ":split<CR>g<C-]>", opts)
 
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { desc = "Format Code" })
 

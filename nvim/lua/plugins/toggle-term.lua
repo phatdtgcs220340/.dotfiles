@@ -4,10 +4,12 @@ return {
     config = function()
         local toggleterm = require("toggleterm")
         toggleterm.setup({
-            -- Default terminal behavior (for <c-\>)
             open_mapping = [[<c-\>]],
-            direction = 'float',  -- Horizontal direction for <c-\>
+            direction = 'float',
+            float_opts = {
+                border = "rounded",
+                winblend = 10
+            }
         })
     end
 }
-
