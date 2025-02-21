@@ -7,7 +7,7 @@ return {
         require("nvim-tree").setup({
             respect_buf_cwd = true,
             view = {
-                width = 50,
+                width = 40,
                 side = "left",
             },
             update_focused_file = {

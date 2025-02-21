@@ -120,8 +120,8 @@ alias chjdk='sudo update-alternatives --config java'
 alias ev='nvim ~/.dotfiles/nvim/.'
 alias mbb='cd ~/knorex/xdsp-dsp-cms-server'
 alias mbf='cd ~/knorex/xdsp-dsp-cms-ui'
-alias lmsbe='cd ~/workspace/lms-server'
-alias lmsfe='cd ~/workspace/lms-client'
+alias lmsbe='cd ~/workspace/final-project/lms-server'
+alias lmsfe='cd ~/workspace/final-project/lms-client'
 
 # docker build
 alias dcu='docker compose up'
@@ -134,9 +134,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 alias nvkm='cat ~/.dotfiles/nvim/lua/core/keymaps.lua'
+
+# tmux alias
 alias tma='tmux a -t'
 alias tmn='tmux new -s'
 alias stm='tmux source-file ~/.tmux.conf'
+alias etmx='v ~/.tmux.conf'
+
 alias pw='~/password.sh'
 export GOROOT=$HOME/go
 export PATH=$GOROOT/bin:$PATH
@@ -147,7 +151,12 @@ alias clearbin='rm -rf ~/.local/share/Trash/*'
 export GOROOT=$HOME/go
 export GOPATH=$HOME/go-workspace
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+
+# lazydocker
 alias lzd='~/.local/bin/lazydocker'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+export PATH="$HOME/.local/bin:$PATH"
+export JAVA_HOME='/usr/lib/jvm/java-17-openjdk-amd64'

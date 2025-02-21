@@ -2,17 +2,11 @@ local wezterm = require 'wezterm'
 
 local config = wezterm.config_builder()
 
-config.default_prog = { "wsl.exe" }
-
 config.enable_tab_bar = false
 
 config.color_scheme = 'Tokyo Night'
 
 config.window_decorations = "RESIZE"
-
-config.font = wezterm.font("Agave Nerd Font Regular")
-local user_home = os.getenv("USERPROFILE")
-config.window_background_image = user_home..'/Downloads/makima-3.png'
 
 config.window_padding = {
     left = 10,
@@ -26,13 +20,15 @@ config.window_background_image_hsb = {
 	saturation = 0.7,
 	brightness = 0.02,
 }
-config.font_size = 9.0
+config.font_size = 14.0
 
 config.set_environment_variables = {
 	term = "xterm-256color"
 }
 
-config.window_background_opacity = 0.95
+config.window_background_opacity = 0.98
+config.window_background_image = "/home/pd204/Pictures/wallpapers/wallpaper-4.png"
+
 config.default_cwd = wezterm.home_dir
 config.keys = {
  -- Horizontal Split 
@@ -51,4 +47,9 @@ config.keys = {
  -- Move to the pane below
     {key = "DownArrow", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Down")},
 }
-    return config;
+
+config.initial_cols = 315
+config.initial_rows = 75
+config.window_padding = { left = 10, right = 10, top = 10, bottom = 10 }
+
+return config;

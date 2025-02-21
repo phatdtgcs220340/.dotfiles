@@ -8,7 +8,7 @@ return {
     config = function()
         require("mason").setup()
         require("mason-lspconfig").setup({
-            ensure_installed = { "lua_ls", "ts_ls" }
+            ensure_installed = { "lua_ls", "ts_ls", "jdtls" }
         })
 
         local lspconfig = require('lspconfig')
@@ -43,8 +43,12 @@ return {
         lspconfig.tailwindcss.setup({})
 
         -- Java LSP
+        local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+        local workspace_dir = vim.fn.stdpath('data') .. '/site/jdtls-workspace/' .. project_name
         vim.uv.os_setenv("JAVA_HOME", "/usr/lib/jvm/java-17-openjdk-amd64")
         lspconfig.jdtls.setup({
+            cmd = { "jdtls", "--jvm-arg=-javaagent:/home/pd204/.config/jdtls/lombok.jar" },
+            root_dir = lspconfig.util.root_pattern("pom.xml", "gradle.build", ".git"),
             settings = {
                 java = {
                     configuration = {
@@ -61,6 +65,9 @@ return {
                     },
                 },
             },
+            init_options = {
+                workspaceFolders = { workspace_dir }
+            }
         })
 
         -- Keybindings for LSP
@@ -88,4 +95,3 @@ return {
         })
     end
 }
-

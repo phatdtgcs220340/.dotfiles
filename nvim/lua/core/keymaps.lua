@@ -24,6 +24,6 @@ keymap("n", "<C-s>", ":w<CR>", opts)
 keymap("n", "<Leader>Q", ":qa!<CR>", opts)
 
 -- Open new tab and class, function, variable definition
-keymap("n", "<C-]>", ":split<CR>g<C-]>", opts)
+keymap("n", "<C-]>", ":vsplit<CR>g<C-]>", opts)
 
 
