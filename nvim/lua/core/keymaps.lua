@@ -24,6 +24,10 @@ keymap("n", "<C-s>", ":w<CR>", opts)
 keymap("n", "<Leader>Q", ":qa!<CR>", opts)
 
 -- Open new tab and class, function, variable definition
-keymap("n", "<C-]>", ":vsplit<CR>g<C-]>", opts)
+keymap('n', '<leader>bo', ':%bd|e#|bd#<CR>', opts)
+keymap('n', '<C-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 
+vim.keymap.set("n", "<leader>z", vim.diagnostic.open_float, opts)

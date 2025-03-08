@@ -3,3 +3,5 @@
 	name = Phat Do
 [merge]
 	tool = nvim
+[url "git@github.com:"]
+	insteadOf = https://github.com/

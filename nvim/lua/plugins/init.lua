@@ -15,6 +15,7 @@ return {
     { import = "plugins.toggle-term" },
     { import = "plugins.null-ls" },
     { import = "plugins.bufferline" },
+    { import = "plugins.dap-config"},
     { "saadparwaiz1/cmp_luasnip" },
     { "rafamadriz/friendly-snippets" },
     { "williamboman/mason.nvim" },

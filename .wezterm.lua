@@ -5,7 +5,7 @@ local config = wezterm.config_builder()
 config.enable_tab_bar = false
 
 config.color_scheme = 'Tokyo Night'
-
+config.font = wezterm.font('JetBrains Mono')
 config.window_decorations = "RESIZE"
 
 config.window_padding = {
@@ -21,6 +21,7 @@ config.window_background_image_hsb = {
 	brightness = 0.02,
 }
 config.font_size = 14.0
+config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })
 
 config.set_environment_variables = {
 	term = "xterm-256color"
@@ -51,5 +52,6 @@ config.keys = {
 config.initial_cols = 315
 config.initial_rows = 75
 config.window_padding = { left = 10, right = 10, top = 10, bottom = 10 }
+
 
 return config;
