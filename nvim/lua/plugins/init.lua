@@ -15,7 +15,8 @@ return {
     { import = "plugins.toggle-term" },
     { import = "plugins.null-ls" },
     { import = "plugins.bufferline" },
-    { import = "plugins.dap-config"},
+    { import = "plugins.dap-config" },
+    { import = "plugins.comment" },
     { "saadparwaiz1/cmp_luasnip" },
     { "rafamadriz/friendly-snippets" },
     { "williamboman/mason.nvim" },
@@ -30,10 +31,9 @@ return {
     },
     {
         "windwp/nvim-ts-autotag",
-        config = function ()
+        config = function()
             require("nvim-ts-autotag").setup()
         end
     },
     { "windwp/nvim-autopairs" },
 }
-

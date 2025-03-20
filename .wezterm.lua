@@ -3,7 +3,7 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
 config.enable_tab_bar = false
-
+config.default_prog = {"/bin/bash", "-c", "tmux new-session -A -s main && tmux-resurrect restore"}
 config.color_scheme = 'Tokyo Night'
 config.font = wezterm.font('JetBrains Mono')
 config.window_decorations = "RESIZE"
@@ -18,17 +18,16 @@ config.window_padding = {
 config.window_background_image_hsb = {
 	hue = 1.0,
 	saturation = 0.7,
-	brightness = 0.02,
+	brightness = 0.2,
 }
+
 config.font_size = 14.0
 config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })
 
 config.set_environment_variables = {
 	term = "xterm-256color"
 }
-
-config.window_background_opacity = 0.98
-config.window_background_image = "/home/pd204/Pictures/wallpapers/wallpaper-4.png"
+config.window_background_image = "/home/pd204/Pictures/wallpapers/wallpaper-5.png"
 
 config.default_cwd = wezterm.home_dir
 config.keys = {
