@@ -7,9 +7,9 @@ return {
             open_mapping = [[<c-\>]],
             direction = 'float',
             float_opts = {
-                border = "rounded",
+                border = "shadow",
                 winblend = 10
-            }
+            },
         })
     end
 }

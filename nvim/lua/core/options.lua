@@ -6,6 +6,7 @@ vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.o.mouse = "a"
 vim.wo.relativenumber = true
+vim.opt.number = true
 
 -- Leader keys
 vim.g.mapleader = " "

@@ -16,18 +16,18 @@ config.window_padding = {
 }
 
 config.window_background_image_hsb = {
-	hue = 1.0,
-	saturation = 0.7,
-	brightness = 0.2,
+	hue = 1.261,
+	saturation = 0.56,
+	brightness = 0.47,
 }
-
+config.window_background_opacity = 0.91
 config.font_size = 14.0
 config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })
 
 config.set_environment_variables = {
 	term = "xterm-256color"
 }
-config.window_background_image = "/home/pd204/Pictures/wallpapers/wallpaper-5.png"
+-- config.window_background_image = "/home/pd204/Pictures/wallpapers/wallpaper-5.png"
 
 config.default_cwd = wezterm.home_dir
 config.keys = {

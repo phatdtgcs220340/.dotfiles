@@ -112,9 +112,9 @@ source $ZSH/oh-my-zsh.sh
 #
 alias cat='batcat'
 alias cdw='cd /mnt/c/Users/Admin/'
-alias eal='nvim ~/.dotfiles/.zshrc'
+alias eal='v ~/.dotfiles/.zshrc'
 alias lal='source ~/.zshrc'
-alias v='nvim'
+alias v='~/nvim.appimage'
 alias kubeknx='kubectl get pods -n mb --kubeconfig ~/.kube/kube-config_knx-gke-staging-use1.yaml'
 alias chjdk='sudo update-alternatives --config java'
 alias ev='nvim ~/.dotfiles/nvim/.'
@@ -140,6 +140,7 @@ alias tma='tmux a -t'
 alias tmn='tmux new -s'
 alias stm='tmux source-file ~/.tmux.conf'
 alias etmx='v ~/.tmux.conf'
+alias lzg='lazygit'
 
 alias pw='~/password.sh'
 export GOROOT=$HOME/go
