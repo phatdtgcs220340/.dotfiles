@@ -11,4 +11,5 @@ vim.opt.number = true
 -- Leader keys
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
-
+vim.opt.fillchars = { vert = " " }
+vim.api.nvim_set_hl(0, "VertSplit", { bg = "NONE", fg = "NONE" })

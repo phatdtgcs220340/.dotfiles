@@ -1,97 +1,100 @@
 return {
-    "neovim/nvim-lspconfig",
-    dependencies = {
+    {
         "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
-        "hrsh7th/cmp-nvim-lsp"
+        -- NOTE: comment it to install jdtls (java language server)
+        config = function()
+            -- require("mason").setup()
+        end,
     },
-    config = function()
-        require("mason").setup()
-        require("mason-lspconfig").setup({
-            ensure_installed = { "lua_ls", "ts_ls", "jdtls" }
-        })
-
-        local lspconfig = require('lspconfig')
-
-        local lsp_defaults = lspconfig.util.default_config
-        lsp_defaults.capabilities = vim.tbl_deep_extend(
-            'force',
-            lsp_defaults.capabilities,
-            require('cmp_nvim_lsp').default_capabilities()
-        )
-
-        -- Lua LSP
-        lspconfig.lua_ls.setup {
-            settings = {
-                Lua = {
-                    diagnostics = {
-                        globals = { "vim" },
-                    },
-                    workspace = {
-                        library = {
-                            [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-                            [vim.fn.stdpath "config" .. "/lua"] = true,
+    {
+        "williamboman/mason-lspconfig.nvim",
+        lazy = false,
+        opts = {
+            auto_install = true,
+        },
+        config = function()
+            require("mason-lspconfig").setup({
+                -- manually install packages that do not exist in this list please
+                ensure_installed = { "lua_ls", "ts_ls" },
+                automatic_enable = false
+            })
+        end,
+    },
+    {
+        "neovim/nvim-lspconfig",
+        lazy = false,
+        config = function()
+            local capabilities = require("cmp_nvim_lsp").default_capabilities()
+            local lspconfig = require("lspconfig")
+            -- lua
+            lspconfig.lua_ls.setup({
+                capabilities = capabilities,
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { "vim" },
+                        },
+                        workspace = {
+                            library = vim.api.nvim_get_runtime_file("", true),
+                            checkThirdParty = false,
+                        },
+                        telemetry = {
+                            enable = false,
                         },
                     },
                 },
-            }
-        }
-
-        -- TypeScript LSP
-        lspconfig.ts_ls.setup({})
-        lspconfig.gopls.setup({})
-        lspconfig.tailwindcss.setup({})
-
-        -- Java LSP
-        local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-        local workspace_dir = vim.fn.stdpath('data') .. '/site/jdtls-workspace/' .. project_name
-        vim.uv.os_setenv("JAVA_HOME", "/usr/lib/jvm/java-17-openjdk-amd64")
-        lspconfig.jdtls.setup({
-            cmd = { "jdtls", "--jvm-arg=-javaagent:/home/pd204/.config/jdtls/lombok.jar" },
-            root_dir = lspconfig.util.root_pattern("pom.xml", "gradle.build", ".git"),
-            settings = {
-                java = {
-                    configuration = {
-                        runtimes = {
-                            {
-                                name = "JavaSE-17",
-                                path = "/usr/lib/jvm/java-17-openjdk-amd64",
+            })
+            -- typescript
+            lspconfig.ts_ls.setup({
+                capabilities = capabilities,
+            })
+            -- tailwindcss
+            lspconfig.tailwindcss.setup({
+            })
+            --java
+            lspconfig.jdtls.setup({
+                cmd = { "jdtls", "--jvm-arg=-javaagent:/home/pd204/.config/jdtls/lombok.jar" },
+                settings = {
+                    java = {
+                        configuration = {
+                            runtimes = {
+                                {
+                                    name = "JavaSE-17",
+                                    path = "/usr/lib/jvm/java-17-openjdk-amd64",
+                                },
+                                {
+                                    name = "JavaSE-21",
+                                    path = "/usr/lib/jvm/java-21-openjdk-amd64",
+                                }
                             },
-                            {
-                                name = "JavaSE-1.8",
-                                path = "/usr/lib/jvm/java-8-openjdk-amd64",
-                            }
-                        },
-                    },
-                },
-            },
-            init_options = {
-                workspaceFolders = { workspace_dir }
-            }
-        })
-
-        -- Keybindings for LSP
-        vim.api.nvim_create_autocmd('LspAttach', {
-            group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-            callback = function(ev)
-                local opts = { buffer = ev.buf }
-                vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-                vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-                vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-                vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-                vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
-                vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
-                vim.keymap.set('n', '<space>wl', function()
-                    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-                end, opts)
-                vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-                vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-                vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-                vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-                vim.keymap.set('n', '<Leader>f', function()
-                    vim.lsp.buf.format { async = true }
-                end, opts)
-            end,
-        })
-    end
+                        }
+                    }
+                }
+            })
+            -- lsp kepmap setting
+            vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+            vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {})
+            vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+            vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {})
+            vim.keymap.set("n", "gr", vim.lsp.buf.references, {})
+            vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
+            vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+            vim.keymap.set('n', '<Leader>f', function()
+                vim.lsp.buf.format { async = true }
+            end, {})
+            -- list all methods in a file
+            -- working with go confirmed, don't know about other, keep changing as necessary
+            vim.keymap.set("n", "<leader>fm", function()
+                local filetype = vim.bo.filetype
+                local symbols_map = {
+                    javascript = "function",
+                    typescript = "function",
+                    java = "class",
+                    lua = "function",
+                }
+                local symbols = symbols_map[filetype] or "function"
+                require("fzf-lua").lsp_document_symbols({ symbols = symbols })
+            end, {})
+        end,
+    },
 }

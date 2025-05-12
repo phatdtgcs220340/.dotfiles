@@ -1,7 +1,7 @@
 require("lualine").setup({
     options = {
-        theme = "tokyonight",
-        icons_enabled = true,
+        theme = "nord",
+        icon_enabled = false
     },
 })
 

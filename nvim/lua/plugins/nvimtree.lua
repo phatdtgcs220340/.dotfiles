@@ -9,16 +9,21 @@ return {
             view = {
                 width = 40,
                 side = "left",
+                float = {
+                    enable = false,
+                    open_win_config = {
+                        border = "none",
+                    },
+                },
             },
             update_focused_file = {
                 enable = true,
                 update_cwd = true
             },
             filters = {
-                custom = { ".git", "node_modules", "target", "out" }, 
+                custom = { ".git", "node_modules", "target", "out" },
                 dotfiles = false
             },
         })
     end
 }
-
