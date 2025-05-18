@@ -12,6 +12,6 @@ return {
 
         -- Load the colorscheme
         require('nord').set()
-        vim.cmd.colorscheme = "nord"
+        -- vim.cmd.colorscheme = "nord"
     end
 }

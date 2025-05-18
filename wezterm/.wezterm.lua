@@ -4,10 +4,12 @@ local config = wezterm.config_builder()
 
 config.enable_tab_bar = false
 config.default_prog = { "/bin/bash", "-c", "tmux new-session -A -s main && tmux-resurrect restore" }
-config.color_scheme = 'Tokyo Night'
+config.color_scheme = 'GruvboxDark'
+config.color_scheme_dirs = { "~/.config/wezterm/colors" }
+
 config.font = wezterm.font {
     family = 'JetBrainsMono',
-    weight = 'Medium',
+    -- weight = 'Bold',
     harfbuzz_features = { 'calt=1', 'clig=1', 'liga=1' },
 }
 config.window_decorations = "RESIZE"
@@ -19,23 +21,13 @@ config.window_padding = {
     bottom = 0,
 }
 
--- config.window_background_image_hsb = {
---     hue = 1.261,
---     saturation = 0.56,
---     brightness = 0.47,
--- }
-
-config.window_background_image_hsb = {
-	hue = 1.0,
-	saturation = 0.7,
-	brightness = 0.02,
+config.colors = {
+    background = "#262626"
 }
-config.font_size = 16.0
 
-config.set_environment_variables = {
-    term = "xterm-256color"
-}
-config.window_background_image = "/home/pd204/Pictures/wallpapers/janedoe-landscape-1.jpg"
+config.font_size = 17.0
+
+-- config.window_background_image = "/home/pd204/Pictures/wallpapers/janedoe-landscape-1.jpg"
 config.default_cwd = wezterm.home_dir
 config.keys = {
     -- Horizontal Split
@@ -44,7 +36,6 @@ config.keys = {
     { key = "v",          mods = "ALT|SHIFT", action = wezterm.action.SplitVertical { domain = "CurrentPaneDomain" } },
     -- Close current pane
     { key = "c",          mods = "ALT|SHIFT", action = wezterm.action.CloseCurrentPane { confirm = true } },
-
     -- Move to the left pane
     { key = "LeftArrow",  mods = "ALT",       action = wezterm.action.ActivatePaneDirection("Left") },
     -- Move to the right pane
