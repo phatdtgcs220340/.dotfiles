@@ -53,7 +53,7 @@ return {
             })
             --java
             lspconfig.jdtls.setup({
-                cmd = { "jdtls", "--jvm-arg=-javaagent:/home/pd204/.config/jdtls/lombok.jar" },
+                cmd = { "/home/pd204/.local/share/jdtls/bin/jdtls", "--jvm-arg=-javaagent:/home/pd204/.config/jdtls/lombok.jar" },
                 settings = {
                     java = {
                         configuration = {
