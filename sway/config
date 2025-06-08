@@ -1,11 +1,9 @@
-# Set your mod key to the Super (Windows) key
 set $mod Mod4
 
 # Basic keybindings
-# Launch Alacritty terminal
 bindsym $mod+Return exec wezterm 
 # Launch Firefox
-bindsym $mod+f exec brave-browser      
+bindsym $mod+f exec brave-browser
 # Close focused window
 bindsym $mod+q kill               
 
@@ -96,9 +94,8 @@ bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -5%'
 bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
 
 input "type:keyboard" {
-    xkb_options ctrl:nocaps,ctrl:swap_lalt_lctl
+    xkb_options ctrl:nocaps
 }
-
 # output eDP-1 pos 0 0
 # output DP-1 pos 0 0
 
