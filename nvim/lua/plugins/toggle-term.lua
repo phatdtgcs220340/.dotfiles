@@ -7,9 +7,13 @@ return {
             open_mapping = [[<c-\>]],
             direction = 'float',
             float_opts = {
-                border = "shadow",
-                winblend = 10
+                border = "curved",
+                winblend = 0,
+                width = math.floor(vim.o.columns * 0.8),
+                height = math.floor(vim.o.lines * 0.8),
             },
         })
     end
+
 }
+

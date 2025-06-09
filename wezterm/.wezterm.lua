@@ -31,13 +31,6 @@ config.font = wezterm.font {
 }
 config.window_decorations = "RESIZE"
 
-config.window_padding = {
-    left = 0,
-    right = 0,
-    top = 0,
-    bottom = 0,
-}
-
 chillColorscheme(config)
 config.font_size = 17.0
 
@@ -59,7 +52,7 @@ config.keys = {
     { key = "DownArrow",  mods = "ALT",       action = wezterm.action.ActivatePaneDirection("Down") },
 }
 
-config.window_padding = { left = 10, right = 10, top = 10, bottom = 10 }
+config.window_padding = { left = 20, right = 20, top = 20, bottom = 20 }
 
 
 return config;
