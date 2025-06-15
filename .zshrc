@@ -161,3 +161,5 @@ alias lzd='~/.local/bin/lazydocker'
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 export PATH="$HOME/.local/bin:$PATH"
 export JAVA_HOME='/usr/lib/jvm/java-17-openjdk-amd64'
+
+if [ -e /home/pd204/.nix-profile/etc/profile.d/nix.sh ]; then . /home/pd204/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
