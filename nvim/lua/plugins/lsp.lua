@@ -53,18 +53,18 @@ return {
             })
             --java
             lspconfig.jdtls.setup({
-                cmd = { "/home/pd204/.local/share/jdtls/bin/jdtls", "--jvm-arg=-javaagent:/home/pd204/.config/jdtls/lombok.jar" },
+                cmd = { "jdtls", "--jvm-arg=-javaagent:/home/phatdo/.config/jdtls/lombok.jar" },
                 settings = {
                     java = {
                         configuration = {
                             runtimes = {
                                 {
                                     name = "JavaSE-17",
-                                    path = "/usr/lib/jvm/java-17-openjdk-amd64",
+                                    path = vim.fn.trim(vim.fn.system("nix eval --raw nixpkgs#jdk17.home")),
                                 },
                                 {
                                     name = "JavaSE-21",
-                                    path = "/usr/lib/jvm/java-21-openjdk-amd64",
+                                    path = vim.fn.trim(vim.fn.system("nix eval --raw nixpkgs#jdk21.home")),
                                 }
                             },
                         }

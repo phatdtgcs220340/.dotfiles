@@ -1,10 +1,10 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
+#
 # I  you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -15,7 +15,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -110,18 +109,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-alias cat='batcat'
-alias cdw='cd /mnt/c/Users/Admin/'
+alias cat='bat'
 alias eal='v ~/.dotfiles/.zshrc'
 alias lal='source ~/.zshrc'
-alias v='~/nvim.appimage'
-alias kubeknx='kubectl get pods -n mb --kubeconfig ~/.kube/kube-config_knx-gke-staging-use1.yaml'
-alias chjdk='sudo update-alternatives --config java'
+alias v='nvim'
 alias ev='nvim ~/.dotfiles/nvim/.'
-alias mbb='cd ~/knorex/xdsp-dsp-cms-server'
-alias mbf='cd ~/knorex/xdsp-dsp-cms-ui'
-alias lmsbe='cd ~/workspace/final-project/lms-server'
-alias lmsfe='cd ~/workspace/final-project/lms-client'
 
 # docker build
 alias dcu='docker compose up'
@@ -154,12 +146,13 @@ export GOPATH=$HOME/go-workspace
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 
 # lazydocker
-alias lzd='~/.local/bin/lazydocker'
+alias lzd='lazydocker'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 export PATH="$HOME/.local/bin:$PATH"
-export JAVA_HOME='/usr/lib/jvm/java-17-openjdk-amd64'
+export JAVA_HOME=$(nix eval --raw nixpkgs#jdk21.home)
 
 if [ -e /home/pd204/.nix-profile/etc/profile.d/nix.sh ]; then . /home/pd204/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+source ~/powerlevel10k/powerlevel10k.zsh-theme
