@@ -1,11 +1,15 @@
 set $mod Mod4
 
+exec ibus-daemon -drx
+
 # Basic keybindings
-bindsym $mod+Return exec wezterm 
+bindsym $mod+Return exec ghostty 
 # Launch Firefox
-bindsym $mod+f exec brave-browser
+bindsym $mod+f exec firefox
 # Close focused window
 bindsym $mod+q kill               
+# Open wofi
+bindsym $mod+d exec wofi --show drun
 
 # Split windows (horizontal/vertical)
 # bindsym $mod+h split h
@@ -40,19 +44,17 @@ exec swaymsg workspace C
 
 # Workspaces define
 # any
-bindsym $mod+a workspace A 
+bindsym $mod+6 workspace A 
 # setting
-bindsym $mod+s workspace S 
-# documents
-bindsym $mod+d workspace D 
+bindsym $mod+5 workspace S 
 # coding
-bindsym $mod+c workspace C 
+bindsym $mod+1 workspace C 
 # browser
-bindsym $mod+b workspace B 
+bindsym $mod+2 workspace B 
 # music
-bindsym $mod+m workspace B 
-# reading
-bindsym $mod+r workspace R 
+bindsym $mod+4 workspace M 
+# Teams, Postman, any team up tools ...
+bindsym $mod+3 workspace R 
 
 # Workspaces moving
 bindsym $mod+Shift+a move container to workspace A
@@ -63,14 +65,14 @@ bindsym $mod+Shift+b move container to workspace B
 bindsym $mod+Shift+r move container to workspace R
 
 # Which app is assigned to which workspace
-assign [class="Brave"] workspace B
-assign [class="Wezterm"] workspace C
+assign [class="Firefox"] workspace B
+assign [class="Ghostty"] workspace C
 
 # Floating windows
 bindsym $mod+Shift+space floating toggle
 # output eDP-1 resolution 1920x1080 rotate normal
 # Set background (replace with your own image path)
-output * bg ~/Pictures/wallpapers/wallpaper-2.png fill
+output * bg ~/Pictures/wallpaper/kaneki-2-landscape.png fill
 # bar {
   # position top
   # swaybar_command waybar
@@ -96,7 +98,19 @@ bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
 input "type:keyboard" {
     xkb_options ctrl:nocaps
 }
+
+input "1267:12541:ELAN0712:00_04F3:30FD_Touchpad" {
+    dwt enabled
+    tap enabled
+    middle_emulation enabled
+    natural_scroll enabled
+}
 # output eDP-1 pos 0 0
 # output DP-1 pos 0 0
+output 'LG Electronics LG ULTRAFINE 406NTEPAU196' scale 1.5
+gaps outer 20
+gaps inner 10
 
-set $term wezterm
+set $term ghostty
+seat * xcursor_theme Bibata-Modern-Ice 24
+
