@@ -9,4 +9,3 @@ require("plugins")
 -- Load UI configurations
 require("ui.colorscheme")
 require("ui.lualine")
-
