@@ -110,10 +110,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 alias cat='bat'
-alias eal='v ~/.dotfiles/.zshrc'
-alias lal='source ~/.zshrc'
 alias v='nvim'
-alias ev='nvim ~/.dotfiles/nvim/.'
 
 # docker build
 alias dcu='docker compose up'
@@ -125,7 +122,6 @@ alias xcp='xclip -selection clipboard'
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-alias nvkm='cat ~/.dotfiles/nvim/lua/core/keymaps.lua'
 
 # tmux alias
 alias tma='tmux a -t'
@@ -144,6 +140,7 @@ alias clearbin='rm -rf ~/.local/share/Trash/*'
 export GOROOT=$HOME/go
 export GOPATH=$HOME/go-workspace
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+alias pw=~/run-password.sh
 
 # lazydocker
 alias lzd='lazydocker'
