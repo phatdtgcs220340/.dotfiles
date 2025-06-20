@@ -11,6 +11,8 @@ bindsym $mod+q kill
 # Open wofi
 bindsym $mod+d exec wofi --show drun
 
+bindsym Ctrl+Shift+s exec grim -g "$(slurp)" - | swappy -f -
+
 # Split windows (horizontal/vertical)
 # bindsym $mod+h split h
 # bindsym $mod+v split v
