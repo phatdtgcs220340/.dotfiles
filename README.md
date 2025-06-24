@@ -1,3 +1,4 @@
+# .dotfiles for my workflow using
 This is my .dotfiles repository for sharing configuration across using computers. Feel free to read and use it :D
 
 ### Showcase 
@@ -11,13 +12,10 @@ Wezterm, Tmux, zsh, powerlevel10k, Nvim
 ### Symbol link 
 #### Linux  
 
+Can run for automatically link the config if your config is default
+
 ```
-# adjust base on your machine 
-ln -s ~/.dotfiles/nvim ~/.config/nvim # Nvim 
-ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf # Tmux
-ln -s ~/.dotfiles/wezterm/.wezterm.lua ~/.wezterm.lua  # Wezterm
-ln -s ~/.dotfiles/wezterm/colors ~/.config/wezterm/colors  # Wezterm
-ln -s ~/.dotfiles/.zshrc ~/.zshrc  # zsh
-ln -s ~/.dotfiles/.p10k.zsh ~/.p10k.zsh # powerlevel10k
-ln -s ~/.dotfiles/fonts /usr/local/share/fonts # Install font into machine
+chmod +x ./auto-symbol-link.sh
+./auto-symbol-link.sh
 ```
+
