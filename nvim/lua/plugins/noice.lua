@@ -28,6 +28,9 @@ return {
             notify = {
                 enabled = false, -- disable native `vim.notify` handling if it’s too noisy
             },
+            presets = {
+                lsp_doc_border = true,
+            },
             routes = {
                 -- filter out noisy messages like diagnostics or `written` messages
                 {
@@ -54,13 +57,9 @@ return {
                     opts = { skip = true },
                 },
             },
-            presets = {
-                bottom_search = true,
-                command_palette = true,
-                long_message_to_split = true,
-                inc_rename = false,
-                lsp_doc_border = true,
-            },
+        })
+        require("notify").setup({
+            background_colour = "#00000000", -- transparent (alpha 0)
         })
     end
 }

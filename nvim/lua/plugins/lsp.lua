@@ -24,6 +24,13 @@ return {
         "neovim/nvim-lspconfig",
         lazy = false,
         config = function()
+
+            -- Attach keymap to noice.nvim for better appearance
+            local on_attach = function(_, bufnr)
+                local opts = { buffer = bufnr, desc = "LSP Hover (Noice)" }
+                vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+            end
+
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             local lspconfig = require("lspconfig")
             -- lua
@@ -43,10 +50,12 @@ return {
                         },
                     },
                 },
+                on_attach = on_attach
             })
             -- typescript
             lspconfig.ts_ls.setup({
                 capabilities = capabilities,
+                on_attach = on_attach
             })
             -- tailwindcss
             lspconfig.tailwindcss.setup({
@@ -69,7 +78,8 @@ return {
                             },
                         }
                     }
-                }
+                },
+                on_attach = on_attach
             })
             lspconfig.nil_ls.setup({
                 capabilities = capabilities,
@@ -80,15 +90,23 @@ return {
                         },
                     },
                 },
+                on_attach = on_attach
             })
             lspconfig.yamlls.setup({
                 capabilities = capabilities,
+                on_attach = on_attach
             })
-            lspconfig.pyright.setup({ capabilities = capabilities })
+            lspconfig.pyright.setup({
+                capabilities = capabilities,
+                on_attach = on_attach
+            })
             -- bash
-            lspconfig.bashls.setup({ capabilities = capabilities })
+            lspconfig.bashls.setup({
+                capabilities = capabilities,
+                on_attach = on_attach
+            })
             -- lsp kepmap setting
-            vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+
             vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {})
             vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
             vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {})
