@@ -3,7 +3,7 @@ return {
         "williamboman/mason.nvim",
         -- NOTE: comment it to install jdtls (java language server)
         config = function()
-            require("mason").setup()
+            require("mason").setup({ PATH = "skip" })
         end,
     },
     {
@@ -15,7 +15,7 @@ return {
         config = function()
             require("mason-lspconfig").setup({
                 -- manually install packages that do not exist in this list please
-                ensure_installed = { "lua_ls", "ts_ls" },
+                ensure_installed = { "ts_ls" },
                 automatic_enable = false
             })
         end,
@@ -71,6 +71,22 @@ return {
                     }
                 }
             })
+            lspconfig.nil_ls.setup({
+                capabilities = capabilities,
+                settings = {
+                    ['nil'] = {
+                        formatting = {
+                            command = { "alejandra" },
+                        },
+                    },
+                },
+            })
+            lspconfig.yamlls.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.pyright.setup({ capabilities = capabilities })
+            -- bash
+            lspconfig.bashls.setup({ capabilities = capabilities })
             -- lsp kepmap setting
             vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
             vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {})
