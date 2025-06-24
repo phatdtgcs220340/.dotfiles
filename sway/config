@@ -93,9 +93,9 @@ bindsym XF86MonBrightnessUp exec 'brightnessctl set +5%'
 # Decrease brightness
 bindsym XF86MonBrightnessDown exec 'brightnessctl set 5%-'
 # Volume
-bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +5%'
-bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -5%'
-bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
+bindsym XF86AudioRaiseVolume exec 'wpctl set-volume @DEFAULT_AUDIO_SINK@ +5%'
+bindsym XF86AudioLowerVolume exec 'wpctl set-volume @DEFAULT_AUDIO_SINK@ -5%'
+bindsym XF86AudioMute exec 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'
 
 input "type:keyboard" {
     xkb_options ctrl:nocaps
@@ -109,6 +109,7 @@ input "1267:12541:ELAN0712:00_04F3:30FD_Touchpad" {
 }
 # output eDP-1 pos 0 0
 # output DP-1 pos 0 0
+# set my personal monitor text scale
 output 'LG Electronics LG ULTRAFINE 406NTEPAU196' scale 1.5
 gaps outer 20
 gaps inner 10
