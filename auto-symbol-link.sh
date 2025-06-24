@@ -35,3 +35,15 @@ ln -s "$HOME/.dotfiles/wezterm" "$HOME/.config/wezterm"
 # Remove and link .tmux.conf config
 rm -rf "$HOME/.tmux.conf"
 ln -s "$HOME/.dotfiles/.tmux.conf" "$HOME/.tmux.conf"
+
+# Remove and link Waybar config
+rm -rf "$HOME/.config/waybar"
+ln -s "$HOME/.dotfiles/waybar" "$HOME/.config/waybar"
+
+# Remove and link wofi config
+rm -rf "$HOME/.config/wofi"
+ln -s "$HOME/.dotfiles/wofi" "$HOME/.config/wofi"
+
+
+
+

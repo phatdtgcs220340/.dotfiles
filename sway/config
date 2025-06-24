@@ -85,8 +85,8 @@ output * bg ~/Pictures/wallpaper/pochita.png fill
 # }
 
 # hide title bar
-default_border none 
-for_window [class=".*"] border none
+# default_border none 
+# for_window [class=".*"] border none
 for_window [title="^.*"] title_format ""
 # default_border normal 0
 # default_floating_border normal 0
