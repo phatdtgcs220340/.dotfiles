@@ -2,6 +2,8 @@ set $mod Mod4
 
 exec ibus-daemon -drx
 
+exec waybar &
+
 # Basic keybindings
 bindsym $mod+Return exec ghostty 
 # Launch Firefox
@@ -10,6 +12,8 @@ bindsym $mod+f exec firefox
 bindsym $mod+q kill               
 # Open wofi
 bindsym $mod+d exec wofi --show drun
+# reload waybar
+bindsym $mod+w exec pkill waybar && waybar &
 
 bindsym Ctrl+Shift+s exec grim -g "$(slurp)" - | swappy -f -
 
@@ -74,7 +78,7 @@ assign [class="Ghostty"] workspace C
 bindsym $mod+Shift+space floating toggle
 # output eDP-1 resolution 1920x1080 rotate normal
 # Set background (replace with your own image path)
-output * bg ~/Pictures/wallpaper/kaneki-2-landscape.png fill
+output * bg ~/Pictures/wallpaper/pochita.png fill
 # bar {
   # position top
   # swaybar_command waybar
@@ -113,6 +117,18 @@ input "1267:12541:ELAN0712:00_04F3:30FD_Touchpad" {
 output 'LG Electronics LG ULTRAFINE 406NTEPAU196' scale 1.5
 gaps outer 20
 gaps inner 10
+
+default_border pixel 2
+default_floating_border pixel 1px
+
+# The border colors:
+
+#                         border    bg        text      ind       child border
+client.focused          #d8cab8 #141216 #d8cab8 #d8cab8 #d8cab8
+client.focused_inactive #AC82E9 #141216 #d8cab8 #AC82E9 #AC82E9
+client.unfocused        #AC82E9 #141216 #d8cab8 #AC82E9 #AC82E9
+client.urgent           #fcb167 #141216 #d8cab8 #fcb167 #fcb167
+client.placeholder      #AC82E9 #141216 #d8cab8 #AC82E9 #AC82E9
 
 set $term ghostty
 seat * xcursor_theme Bibata-Modern-Ice 24
