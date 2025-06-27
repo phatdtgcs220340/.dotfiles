@@ -78,7 +78,7 @@ assign [class="Ghostty"] workspace C
 bindsym $mod+Shift+space floating toggle
 # output eDP-1 resolution 1920x1080 rotate normal
 # Set background (replace with your own image path)
-output * bg ~/Pictures/wallpaper/pochita.png fill
+output * bg ~/Pictures/wallpaper/skirk-landscape-1.png fill
 # bar {
   # position top
   # swaybar_command waybar
@@ -133,3 +133,16 @@ client.placeholder      #AC82E9 #141216 #d8cab8 #AC82E9 #AC82E9
 set $term ghostty
 seat * xcursor_theme Bibata-Modern-Ice 24
 
+# Rounded corners
+corner_radius 10
+
+# Blur settings
+blur enable
+blur_radius 5
+blur_passes 1
+
+shadows enable
+
+for_window [app_id="ghostty"] blur enable
+for_window [app_id="ghostty"] corner_radius 10
+for_window [app_id="ghostty"] shadows enable
