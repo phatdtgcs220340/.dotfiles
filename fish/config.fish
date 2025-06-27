@@ -47,6 +47,10 @@ if status is-interactive
 
     # Java (only works if nix is installed and evaluated here)
     set -x JAVA_HOME (nix eval --raw nixpkgs#jdk21.home)
+    
+    function java
+        $JAVA_HOME/bin/java
+    end
 
     # Commands to run in interactive sessions can go here
 end
