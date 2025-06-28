@@ -1,0 +1,4 @@
+[opener]
+pdf = { command = "zathura", args = ["$1"], block = false }
+epub = { command = "zathura", args = ["$1"], block = false }
+
