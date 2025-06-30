@@ -49,7 +49,11 @@ if status is-interactive
     set -x JAVA_HOME (nix eval --raw nixpkgs#jdk21.home)
     
     function java
-        $JAVA_HOME/bin/java
+        $JAVA_HOME/bin/java $argv
+    end
+
+    function javac
+        $JAVA_HOME/bin/javac $argv
     end
 
     # Commands to run in interactive sessions can go here
