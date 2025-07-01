@@ -56,5 +56,7 @@ if status is-interactive
         $JAVA_HOME/bin/javac $argv
     end
 
+    set fish_greeting 
+
     # Commands to run in interactive sessions can go here
 end
