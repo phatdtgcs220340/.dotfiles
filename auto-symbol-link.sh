@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Remove and link Neovim config
 rm -rf "$HOME/.config/nvim"

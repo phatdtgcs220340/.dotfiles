@@ -32,6 +32,8 @@ if status is-interactive
         rm -rf ~/.local/share/Trash/*
     end
 
+    set -x NIX_CONFIG "experimental-features = nix-command flakes"
+
     # Env vars
     set -x NVM_DIR "$HOME/.nvm"
 
