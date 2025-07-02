@@ -57,6 +57,13 @@ return {
                 capabilities = capabilities,
                 on_attach = on_attach
             })
+
+            -- go
+            lspconfig.gopls.setup({
+                capabilities = capabilities,
+                on_attach = on_attach
+            })
+
             -- tailwindcss
             lspconfig.tailwindcss.setup({
             })
