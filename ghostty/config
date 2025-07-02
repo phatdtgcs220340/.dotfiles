@@ -1,7 +1,6 @@
 theme = "catppuccin-mocha"
-font-family = Adwaita Mono
-background-opacity = 0.92
-background-blur-radius = 90
+background-opacity = 0.72
+background-blur-radius = 95
 title = ""
 cursor-color = #f8f8f2
 cursor-opacity = 0.7

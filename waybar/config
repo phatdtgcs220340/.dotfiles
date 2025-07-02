@@ -5,34 +5,23 @@
   "margin-bottom": 0,
   "margin-top": 15,
   "position": "top",
-  "margin-right": 500,
-  "margin-left": 500,
+  "margin-right": 20,
+  "margin-left": 20,
   "modules-left": [
-    "hyprland/workspaces",
     "sway/workspaces"
   ],
   "modules-center": [
-    "custom/applauncher"
-  ],
-  "modules-right": [
-    "network",
-    "battery",
-    "pulseaudio",
-    "tray",
     "clock"
   ],
-  "hyprland/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": false,
-    "tooltip": false
-  },
+  "modules-right": [
+    "tray",
+    "battery",
+    "pulseaudio",
+    "network",
+  ],
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": false,
-    "tooltip": false
-  },
-  "custom/applauncher": {
-    "format": "Máy của Phát 😶‍🌫️",
     "tooltip": false
   },
   "tray": {
@@ -40,7 +29,7 @@
     "tooltip": false
   },
   "clock": {
-    "format": "󰅐  {:%d-%b-%Y %H:%M}",
+    "format": " {:%H:%M}",
     "tooltip": false
   },
   "network": {
@@ -56,9 +45,9 @@
     "format": "{icon} {volume}%",
     "format-bluetooth": "{icon} {volume}%",
     "format-icons": [
-      "",
-      "",
-      " "
+      " ",
+      " ",
+      "  "
     ],
     "nospacing": 1,
     "format-muted": " ",

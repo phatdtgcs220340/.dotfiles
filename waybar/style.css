@@ -9,10 +9,11 @@
 
 window#waybar {
   /* Linear gradients are used because it makes less harsh rounded border radius, gtk bug :p */
-  background: rgba(20, 18, 22, 0.4);
+  background: rgba(20, 18, 22, 0.3);
   border-radius: 14px;
   padding: 0px 15px 0 15px;
   border-style: none;
+  -webkit-backdrop-filter: blur(10px);
 }
 
 #battery,
@@ -29,29 +30,12 @@ window#waybar {
   padding: 4px 8px;
   border-radius: 8px;
   color: #d8cab8;
-
   border-style: none;
   transition-duration: 120ms;
 }
 
-#clock {
+#network {
   margin-right: 6px;
-}
-
-#pulseaudio:hover {
-  background-image: linear-gradient(to bottom, #ac82e9 100%);
-  color: #141216;
-  transition-duration: 120ms;
-}
-
-#custom-applauncher {
-  font-weight: bold;
-  transition-duration: 120ms;
-}
-#custom-applauncher:hover {
-  background-image: linear-gradient(to bottom, #ac82e9 100%);
-  color: #141216;
-  transition-duration: 120ms;
 }
 
 #tray menu {
@@ -61,7 +45,6 @@ window#waybar {
 }
 #tray menu menuitem {
   background-image: linear-gradient(to bottom, #27232b 100%);
-
   margin: 3px;
   color: #d8cab8;
   border-radius: 4px;

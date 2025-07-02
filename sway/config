@@ -78,7 +78,7 @@ assign [class="Ghostty"] workspace C
 bindsym $mod+Shift+space floating toggle
 # output eDP-1 resolution 1920x1080 rotate normal
 # Set background (replace with your own image path)
-output * bg ~/Pictures/wallpaper/skirk-landscape-1.png fill
+output * bg ../images/skirk-landscape-1.png fill
 # bar {
   # position top
   # swaybar_command waybar
@@ -118,17 +118,7 @@ output 'LG Electronics LG ULTRAFINE 406NTEPAU196' scale 1.5
 gaps outer 20
 gaps inner 10
 
-default_border pixel 2
-default_floating_border pixel 1px
-
-# The border colors:
-
-#                         border    bg        text      ind       child border
-client.focused          #d8cab8 #141216 #d8cab8 #d8cab8 #d8cab8
-client.focused_inactive #AC82E9 #141216 #d8cab8 #AC82E9 #AC82E9
-client.unfocused        #AC82E9 #141216 #d8cab8 #AC82E9 #AC82E9
-client.urgent           #fcb167 #141216 #d8cab8 #fcb167 #fcb167
-client.placeholder      #AC82E9 #141216 #d8cab8 #AC82E9 #AC82E9
+default_border none
 
 set $term ghostty
 seat * xcursor_theme Bibata-Modern-Ice 24
@@ -146,3 +136,7 @@ shadows enable
 for_window [app_id="ghostty"] blur enable
 for_window [app_id="ghostty"] corner_radius 10
 for_window [app_id="ghostty"] shadows enable
+
+for_window [app_id="waybar"] blur enable
+for_window [app_id="waybar"] corner_radius 10
+for_window [app_id="waybar"] shadows enable
