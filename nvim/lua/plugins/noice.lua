@@ -2,8 +2,13 @@ return {
     "folke/noice.nvim",
     event = "VeryLazy",
     dependencies = {
-        "MunifTanjim/nui.nvim",
-        "rcarriga/nvim-notify",
+        { "MunifTanjim/nui.nvim" },
+        {
+            "rcarriga/nvim-notify",
+            on_open = function(win)
+                vim.api.nvim_win_set_config(win, { focusable = false })
+            end,
+        }
     },
     config = function()
         require("noice").setup({

@@ -15,9 +15,9 @@
   ],
   "modules-right": [
     "tray",
-    "battery",
     "pulseaudio",
     "network",
+    "battery",
   ],
   "sway/workspaces": {
     "disable-scroll": true,

@@ -1,5 +1,5 @@
 theme = "catppuccin-mocha"
-background-opacity = 0.72
+background-opacity = 0.82
 background-blur-radius = 95
 title = ""
 cursor-color = #f8f8f2
@@ -7,4 +7,4 @@ cursor-opacity = 0.7
 window-decoration = false
 gtk-titlebar = false
 window-padding-x = 10
-window-padding-y = 10
+window-padding-y = 5
