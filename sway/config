@@ -78,11 +78,11 @@ assign [class="Ghostty"] workspace C
 bindsym $mod+Shift+space floating toggle
 # output eDP-1 resolution 1920x1080 rotate normal
 # Set background (replace with your own image path)
-output * bg ../images/skirk-landscape-1.png fill
-# bar {
-  # position top
-  # swaybar_command waybar
-# }
+output * bg ../images/dark-knight-blue-2.png fill
+bar {
+  position top
+  swaybar_command waybar
+}
 
 # hide title bar
 # default_border none 
@@ -140,3 +140,9 @@ for_window [app_id="ghostty"] shadows enable
 for_window [app_id="waybar"] blur enable
 for_window [app_id="waybar"] corner_radius 10
 for_window [app_id="waybar"] shadows enable
+
+exec_always {
+  export XDG_SESSION_TYPE=wayland
+  export XDG_CURRENT_DESKTOP=sway
+  export XDG_DESKTOP_PORTAL=xdg-desktop-portal-wlr
+}

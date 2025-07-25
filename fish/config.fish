@@ -60,5 +60,138 @@ if status is-interactive
 
     set fish_greeting 
 
+    set -x SWAY_BACKGROUND = $HOME/.dotfiles/images/skirk-landscape-1.png
+
+    set -x XDG_CURRENT_DESKTOP "sway"
+    set -x XDG_SESSION_TYPE "wayland"
+    set -x XDG_SESSION_DESKTOP "sway"
     # Commands to run in interactive sessions can go here
+        function g
+        git $argv
+    end
+
+    function ga
+        git add $argv
+    end
+
+    function gapa
+        git add --patch $argv
+    end
+
+    function gaa
+        git add --all $argv
+    end
+
+    function gb
+        git branch $argv
+    end
+
+    function gba
+        git branch -a $argv
+    end
+
+    function gcb
+        git checkout -b $argv
+    end
+
+    function gco
+        git checkout $argv
+    end
+
+    function gcmsg
+        git commit -m $argv
+    end
+
+    function gcam
+        git commit -a -m $argv
+    end
+
+    function 'gc!'
+        git commit -v --amend $argv
+    end
+
+    function 'gcn!'
+        git commit -v --no-edit --amend $argv
+    end
+
+    function gd
+        git diff $argv
+    end
+
+    function gf
+        git fetch $argv
+    end
+
+    function gl
+        git pull $argv
+    end
+
+    function glog
+        git log $argv
+    end
+
+    function gloga
+        git log --oneline --decorate --graph --all $argv
+    end
+
+    function gm
+        git merge $argv
+    end
+
+    function gp
+        git push $argv
+    end
+
+    function gpsup
+        git push --set-upstream origin (git rev-parse --abbrev-ref HEAD)
+    end
+
+    function 'gpf!'
+        git push --force $argv
+    end
+
+    function grb
+        git rebase $argv
+    end
+
+    function grbi
+        git rebase -i $argv
+    end
+
+    function grhh
+        git reset --hard $argv
+    end
+
+    function grs
+        git restore $argv
+    end
+
+    function gst
+        git status $argv
+    end
+
+    function gss
+        git status -s $argv
+    end
+
+    function gsta
+        git stash push $argv
+    end
+
+    function gstp
+        git stash pop $argv
+    end
+
+    function tmn
+        tmux new -s $argv
+    end
+    
+    function tma
+        tmux attach
+    end
+
+    function ss
+        systemctl suspend
+    end
+
 end
