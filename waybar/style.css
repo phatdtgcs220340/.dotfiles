@@ -34,7 +34,7 @@ window#waybar {
   transition-duration: 120ms;
 }
 
-#battery {
+#network {
   margin-right: 6px;
 }
 
