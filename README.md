@@ -6,6 +6,7 @@ This is my .dotfiles repository for sharing configuration across using computers
 ![Showcase Image 2](./images/showcase-2.png)
 ![Showcase Image 3](./images/showcase-3.png)
 ![Showcase Image 4](./images/showcase-4.png)
+![Showcase Image 5](./images/showcase-5.png)
 ### Prequisites 
 Need to download neccessary tools for using these configs.
 
