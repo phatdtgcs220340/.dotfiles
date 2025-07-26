@@ -1,6 +1,5 @@
 return {
     { "nvim-tree/nvim-web-devicons" },
-    { "morhetz/gruvbox" },
     { "saadparwaiz1/cmp_luasnip" },
     { "rafamadriz/friendly-snippets" },
     {

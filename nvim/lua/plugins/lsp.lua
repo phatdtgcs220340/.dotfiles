@@ -1,30 +1,8 @@
 return {
     {
-        "williamboman/mason.nvim",
-        -- NOTE: comment it to install jdtls (java language server)
-        config = function()
-            require("mason").setup({ PATH = "skip" })
-        end,
-    },
-    {
-        "williamboman/mason-lspconfig.nvim",
-        lazy = false,
-        opts = {
-            auto_install = true,
-        },
-        config = function()
-            require("mason-lspconfig").setup({
-                -- manually install packages that do not exist in this list please
-                ensure_installed = { "ts_ls" },
-                automatic_enable = false
-            })
-        end,
-    },
-    {
         "neovim/nvim-lspconfig",
         lazy = false,
         config = function()
-
             -- Attach keymap to noice.nvim for better appearance
             local on_attach = function(_, bufnr)
                 local opts = { buffer = bufnr, desc = "LSP Hover (Noice)" }
