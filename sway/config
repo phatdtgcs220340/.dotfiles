@@ -78,7 +78,7 @@ assign [class="Ghostty"] workspace C
 bindsym $mod+Shift+space floating toggle
 # output eDP-1 resolution 1920x1080 rotate normal
 # Set background (replace with your own image path)
-output * bg ../images/dark-knight-blue-2.png fill
+output * bg ../images/wallpapers/dark-knight-blue-2.png fill
 # bar {
 #   position top
 #   swaybar_command waybar
