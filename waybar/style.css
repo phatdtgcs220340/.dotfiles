@@ -20,7 +20,7 @@ window#waybar {
 #network,
 #clock,
 #custom-applauncher,
-#tray,
+#custom-spotify,
 #workspaces,
 #pulseaudio {
   /* background-image: linear-gradient(to bottom, #27232b 100%); */
@@ -29,7 +29,7 @@ window#waybar {
   margin-right: 0px;
   padding: 4px 8px;
   border-radius: 8px;
-  color: #d8cab8;
+  color: #bfe7f5;
   border-style: none;
   transition-duration: 120ms;
 }
@@ -38,20 +38,20 @@ window#waybar {
   margin-right: 6px;
 }
 
-#tray menu {
+#custom-spotify menu {
   background-color: #141216;
-  color: #d8cab8;
+  color: #bfe7f5;
   padding: 4px;
 }
-#tray menu menuitem {
+#custom-spotify menu menuitem {
   background-image: linear-gradient(to bottom, #27232b 100%);
   margin: 3px;
-  color: #d8cab8;
+  color: #bfe7f5;
   border-radius: 4px;
   border-style: solid;
   border-color: #27232b;
 }
-#tray menu menuitem:hover {
+#custom-spotify menu menuitem:hover {
   background-image: linear-gradient(to bottom, #27232b 100%);
   color: #ac82e9;
   font-weight: bold;
@@ -62,21 +62,21 @@ window#waybar {
   all: initial;
   min-width: 0;
   font-weight: bold;
-  color: #d8cab8;
+  color: #bfe7f5;
   margin-right: 0.2cm;
   margin-left: 0.2cm;
 }
 
 #workspaces button:hover {
   transition-duration: 120ms;
-  color: #8f56e1;
+  color: #5dcdf5;
 }
 #workspaces button.focused {
-  color: #ac82e9;
+  color: #5dcdf5;
   font-weight: bold;
 }
 #workspaces button.active {
-  color: #ac82e9;
+  color: #5dcdf5;
   font-weight: bold;
 }
 #workspaces button.urgent {

@@ -14,21 +14,34 @@
     "clock"
   ],
   "modules-right": [
+    "custom/spotify",
     "pulseaudio",
     "network",
-    "battery",
+    "battery"
   ],
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": false,
-    "tooltip": false
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+        "A": " ",
+        "S": " ",
+        "C": " ",
+        "B": "󰈹 ",
+        "M": " ",
+        "R": " ",
+        "default": " "
+    }
   },
-  "tray": {
-    "spacing": 10,
-    "tooltip": false
+  "custom/spotify": {
+    "format": "  {}",
+    "return-type": "text",
+    "interval" : 3,
+    "exec": "playerctl metadata --format '{{artist}} - {{title}}'"
   },
   "clock": {
-    "format": " {:%H:%M}",
+    "format": "  {:%H:%M}",
     "tooltip": false
   },
   "network": {
