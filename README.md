@@ -8,8 +8,6 @@ This is my .dotfiles repository for sharing configuration across using computers
 ![Showcase Image 4](./images/showcase-4.png)
 ![Showcase Image 5](./images/showcase-5.png)
 ### Prequisites 
-Need to download neccessary tools for using these configs.
-
 You may take a look at my nix config workflow to see full download details :D
 
 [Worflow nix config](https://github.com/phatdtgcs220340/nix-config/tree/main/modules/working/workflow)
