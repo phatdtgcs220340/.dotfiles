@@ -13,13 +13,10 @@ Need to download neccessary tools for using these configs.
 You may take a look at my nix config workflow to see full download details :D
 
 [Worflow nix config](https://github.com/phatdtgcs220340/nix-config/tree/main/modules/working/workflow)
-### Symbol link 
-#### Linux  
 
-Can run for automatically link the config if your config is default
-
-```
-chmod +x ./auto-symbol-link.sh
-./auto-symbol-link.sh
+**GNU Stow**
+```sh
+cd ~/.dotfiles
+stow -t ~ git tmux config
 ```
 
