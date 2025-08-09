@@ -2,33 +2,32 @@
   "$schema": "/etc/xdg/swaync/configSchema.json",
   "positionX": "right",
   "positionY": "top",
-  "layer": "overlay",
-  "control-center-margin-top": 20,
-  "control-center-margin-bottom": 2,
-  "control-center-margin-right": 20,
-  "control-center-margin-left": 20,
-  "notification-icon-size": 48,
-  "notification-body-image-height": 160,
-  "notification-body-image-width": 90,
-  "timeout": 6,
-  "timeout-low": 4,
-  "timeout-critical": 0,
+  "cssPriority": "user",
+  "control-center-margin-top": 8,
+  "control-center-margin-bottom": 0,
+  "control-center-margin-right": 8,
+  "control-center-margin-left": 0,
+  "control-center-width": 320,
+  "control-center-height": 600,
+
+  "notification-window-width": 350,
+  "notification-icon-size": 30,
+  "notification-body-image-height": 100,
+  "notification-body-image-width": 220,
+
+  "timeout": 3,
+  "timeout-low": 2,
+  "timeout-critical": 6,
   "fit-to-screen": false,
-  "control-center-width": 430,
-  "control-center-height": 1000,
-  "notification-window-width": 366,
+
   "keyboard-shortcuts": true,
   "image-visibility": "when-available",
-  "transition-time": 100,
-  "hide-on-clear": true,
+  "transition-time": 200,
+  "hide-on-clear": false,
   "hide-on-action": true,
   "script-fail-notify": true,
-  "scripts": {
-    "example-script": {
-      "exec": "echo 'Do something...'",
-      "urgency": "Normal"
-    }
-  },
+  "widgets": ["mpris", "dnd", "title", "notifications"],
+
   "notification-visibility": {
     "example-name": {
       "state": "muted",
@@ -36,94 +35,19 @@
       "app-name": "Spotify"
     }
   },
-  "widgets": [
-    "label",
-    "menubar",
-    "volume",
-    "mpris",
-    "title",
-    "dnd",
-    "notifications"
-  ],
+
   "widget-config": {
     "title": {
-      "text": "Notifications",
+      "text": " Notifications",
       "clear-all-button": true,
-      "button-text": "Clear All"
+      "button-text": ""
     },
     "dnd": {
-      "text": "Do Not Disturb"
-    },
-    "label": {
-      "max-lines": 1,
-      "text": "Controll Center"
+      "text": " DND"
     },
     "mpris": {
-      "image-size": 96,
-      "image-radius": 6
-    },
-    "backlight": {
-      "label": "",
-      "device": "intel_backlight",
-      "min": 10
-    },
-    "backlight#KB": {
-      "label": " ",
-      "device": "asus::kbd_backlight",
-      "subsystem": "leds"
-    },
-    "volume": {
-      "label": ""
-    },
-    "menubar": {
-      "menu#network-buttons": {
-        "label": "",
-        "position": "center",
-        "actions": [
-          {
-            "label": "Network Settings",
-            "command": "nm-connection-editor"
-          }
-        ]
-      },
-      "menu#bluetooth-buttons": {
-        "label": "",
-        "position": "center",
-        "actions": [
-          {
-            "label": "Bluetooth Manager",
-            "command": "blueman"
-          }
-        ]
-      },
-      "menu#settings": {
-        "label": "",
-        "position": "center",
-        "actions": [
-          {
-            "label": "Hyprland Configuration",
-            "command": "kitty --title browser sh -c $HOME/.config/hypr/scripts/settings.sh"
-          }
-        ]
-      },
-      "menu#powermode-buttons": {
-        "label": "",
-        "position": "center",
-        "actions": [
-          {
-            "label": " Performance",
-            "command": "powerprofilesctl set performance"
-          },
-          {
-            "label": " Balanced",
-            "command": "powerprofilesctl set balanced"
-          },
-          {
-            "label": " Power-saver",
-            "command": "powerprofilesctl set power-saver"
-          }
-        ]
-      }
+      "image-size": 60,
+      "image-radius": 12
     }
   }
 }
