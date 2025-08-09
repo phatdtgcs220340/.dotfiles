@@ -18,6 +18,9 @@ bindsym $mod+w exec pkill waybar && waybar &
 
 bindsym Ctrl+Shift+s exec grim -g "$(slurp)" - | swappy -f -
 
+# open swaync 
+bindsym $mod+n exec swaync-client -t
+
 # Split windows (horizontal/vertical)
 # bindsym $mod+h split h
 # bindsym $mod+v split v
@@ -127,20 +130,15 @@ seat * xcursor_theme Bibata-Modern-Ice 24
 # Rounded corners
 corner_radius 5
 
+blur enable
+blur_xray on
+
 # Blur settings
 blur enable
 blur_radius 5
 blur_passes 1
 
 shadows enable
-
-for_window [app_id="ghostty"] blur enable
-for_window [app_id="ghostty"] corner_radius 10
-for_window [app_id="ghostty"] shadows enable
-
-for_window [app_id="waybar"] blur enable
-for_window [app_id="waybar"] corner_radius 10
-for_window [app_id="waybar"] shadows enable
 
 # Required for xdg-desktop-portal-wlr
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
