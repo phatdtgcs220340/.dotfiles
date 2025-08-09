@@ -3,6 +3,7 @@ set $mod Mod4
 exec ibus-daemon -drx
 
 exec waybar &
+exec swaync
 
 # Basic keybindings
 bindsym $mod+Return exec ghostty 
@@ -78,7 +79,7 @@ assign [class="Ghostty"] workspace C
 bindsym $mod+Shift+space floating toggle
 # output eDP-1 resolution 1920x1080 rotate normal
 # Set background (replace with your own image path)
-output * bg ../images/wallpapers/dark-knight-blue-2.png fill
+output * bg ~/.dotfiles/images/wallpapers/dark-knight-blue-2.png fill
 # bar {
 #   position top
 #   swaybar_command waybar
@@ -124,7 +125,7 @@ set $term ghostty
 seat * xcursor_theme Bibata-Modern-Ice 24
 
 # Rounded corners
-corner_radius 10
+corner_radius 5
 
 # Blur settings
 blur enable
@@ -141,8 +142,10 @@ for_window [app_id="waybar"] blur enable
 for_window [app_id="waybar"] corner_radius 10
 for_window [app_id="waybar"] shadows enable
 
-exec_always {
-  export XDG_SESSION_TYPE=wayland
-  export XDG_CURRENT_DESKTOP=sway
-  export XDG_DESKTOP_PORTAL=xdg-desktop-portal-wlr
-}
+# Required for xdg-desktop-portal-wlr
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
+# Optional: set variable so apps detect sway
+set $XDG_CURRENT_DESKTOP sway
+

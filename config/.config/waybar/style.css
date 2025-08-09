@@ -9,11 +9,9 @@
 
 window#waybar {
   /* Linear gradients are used because it makes less harsh rounded border radius, gtk bug :p */
-  background: rgba(20, 18, 22, 0.3);
   border-radius: 14px;
   padding: 0px 15px 0 15px;
   border-style: none;
-  -webkit-backdrop-filter: blur(10px);
 }
 
 #battery,
@@ -24,14 +22,14 @@ window#waybar {
 #workspaces,
 #pulseaudio {
   /* background-image: linear-gradient(to bottom, #27232b 100%); */
-  background: rgba(20, 18, 22, 0.8);
-  margin: 6px;
-  margin-right: 0px;
+  background: rgba(20, 18, 22, 0.7);
+  margin-right: 2px;
   padding: 4px 8px;
   border-radius: 8px;
   color: #bfe7f5;
   border-style: none;
   transition-duration: 120ms;
+  -webkit-backdrop-filter: blur(10px);
 }
 
 #network {

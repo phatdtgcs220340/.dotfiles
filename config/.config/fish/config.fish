@@ -182,6 +182,10 @@ if status is-interactive
         git stash pop $argv
     end
 
+    function gs
+        git show
+    end
+
     function tmn
         tmux new -s $argv
     end
@@ -194,4 +198,10 @@ if status is-interactive
         systemctl suspend
     end
 
+    set -x ANDROID_HOME "$HOME/Android/Sdk"
+    set -x PATH "$PATH:$ANDROID_HOME/emulator"
+    set -x PATH "$PATH:$ANDROID_HOME/platform-tools"
+    set -x XMODIFIERS "@im=ibus"
+    set -x GTK_IM_MODULE "ibus"
+    set -x QT_IM_MODULE "ibus"
 end
