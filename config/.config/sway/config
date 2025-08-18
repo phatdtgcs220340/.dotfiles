@@ -2,8 +2,9 @@ set $mod Mod4
 
 exec ibus-daemon -drx
 
-exec waybar &
-exec swaync
+exec waybar & 
+
+exec exec swaync
 
 # Basic keybindings
 bindsym $mod+Return exec ghostty 
@@ -48,6 +49,8 @@ bindsym $mod+Shift+e exec "swaymsg exit"
 # Reload Sway config
 bindsym $mod+Shift+Escape reload                 
 
+bindsym $mod+m exec "~/.local/bin/custom-monitor.sh"
+
 # Workspace
 # Open it while starting up
 exec swaymsg workspace C
@@ -74,6 +77,9 @@ bindsym $mod+Shift+1 move container to workspace C
 bindsym $mod+Shift+2 move container to workspace B
 bindsym $mod+Shift+3 move container to workspace R
 
+# Toggle between English and Vietnamese Bamboa
+bindsym Ctrl+space exec "if [ $(ibus engine) = Bamboo ]; then ibus engine xkb:us:intl:eng; else ibus engine Bamboo; fi"
+
 # Which app is assigned to which workspace
 assign [class="Firefox"] workspace B
 assign [class="Ghostty"] workspace C
@@ -82,7 +88,7 @@ assign [class="Ghostty"] workspace C
 bindsym $mod+Shift+space floating toggle
 # output eDP-1 resolution 1920x1080 rotate normal
 # Set background (replace with your own image path)
-output * bg ~/.dotfiles/images/wallpapers/dark-knight-blue-2.png fill
+output * bg ~/.dotfiles/images/wallpapers/dark-knight-blue.png fill
 # bar {
 #   position top
 #   swaybar_command waybar
@@ -109,14 +115,15 @@ input "type:keyboard" {
     xkb_options ctrl:nocaps
 }
 
-input "1267:12541:ELAN0712:00_04F3:30FD_Touchpad" {
+input "2:7:SynPS/2_Synaptics_TouchPad" {
     dwt enabled
     tap enabled
     middle_emulation enabled
     natural_scroll enabled
 }
-# output eDP-1 pos 0 0
-# output DP-1 pos 0 0
+
+# output eDP-1 pos 10 10
+# output DP-1 pos 10 10
 # set my personal monitor text scale
 output 'LG Electronics LG ULTRAFINE 406NTEPAU196' scale 1.5
 gaps outer 20
@@ -147,3 +154,16 @@ exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 # Optional: set variable so apps detect sway
 set $XDG_CURRENT_DESKTOP sway
 
+set $GTK_IM_MODULE ibus
+set $QT_IM_MODULE ibus
+set $XMODIFIERS @im=ibus
+set $SDL_IM_MODULE ibus
+set $GLFW_IM_MODULE ibus
+
+exec_always {
+    export GTK_IM_MODULE=$GTK_IM_MODULE
+    export QT_IM_MODULE=$QT_IM_MODULE
+    export XMODIFIERS=$XMODIFIERS
+    export SDL_IM_MODULE=$SDL_IM_MODULE
+    export GLFW_IM_MODULE=$GLFW_IM_MODULE
+}

@@ -38,9 +38,9 @@
   "custom/spotify": {
     "format": "  {}",
     "return-type": "text",
-    "interval" : 3,
-    "exec": "playerctl metadata --format '{{artist}} - {{title}}'"
-  },
+    "interval": 3,
+    "exec": "playerctl metadata --format '{{artist}} - {{title}}' | awk '{ if (length($0) > 30) print substr($0,1,27) \"...\"; else print $0 }'"
+    },
   "custom/notification": {
     "tooltip": false,
     "format": "{icon}",
@@ -92,9 +92,10 @@
       "warning": 30,
       "critical": 15
     },
+    "interval": 5,
     "format": "{icon} {capacity}%",
     "format-charging": "󰂄 {capacity}%",
-    "format-plugged": "󰂄{capacity}%",
+    "format-plugged": "󰂄 {capacity}%",
     "format-alt": "{icon} {time}",
     "format-full": "󱈑 {capacity}%",
     "format-icons": [

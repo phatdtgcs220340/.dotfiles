@@ -102,12 +102,11 @@ window#waybar {
 }
 
 #battery {
-  background-color: #222222;
-  color: #1d2021;
+  color: #bfe7f5;
 }
+
 #battery.warning,
 #battery.critical,
 #battery.urgent {
-  color: #1d2021;
-  background-color: #fc4649;
+  color: #fcb167;
 }
