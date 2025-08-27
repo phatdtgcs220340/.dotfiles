@@ -18,6 +18,7 @@
     "pulseaudio",
     "network",
     "battery",
+    "custom/keyboard",
     "custom/notification"
   ],
   "sway/workspaces": {
@@ -60,6 +61,11 @@
     "on-click": "swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
     "escape": true
+  },
+  "custom/keyboard": {
+    "format": "{}",
+    "exec": "~/.config/waybar/keyboard.sh",
+    "interval": 1
   },
   "clock": {
     "format": "  {:%H:%M}",
