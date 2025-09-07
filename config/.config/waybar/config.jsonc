@@ -64,6 +64,7 @@
   },
   "custom/keyboard": {
     "format": "{}",
+    "on-click" : "~/.config/waybar/switch-keyboard.sh",
     "exec": "~/.config/waybar/keyboard.sh",
     "interval": 1
   },

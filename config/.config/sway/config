@@ -77,6 +77,10 @@ bindsym $mod+Shift+1 move container to workspace C
 bindsym $mod+Shift+2 move container to workspace B
 bindsym $mod+Shift+3 move container to workspace R
 
+bindsym $mod+Tab workspace next
+
+bindsym $mod+Shift+Tab workspace prev
+
 # Toggle between English and Vietnamese Bamboa
 bindsym Ctrl+space exec "if [ $(ibus engine) = Bamboo ]; then ibus engine xkb:us:intl:eng; else ibus engine Bamboo; fi"
 
