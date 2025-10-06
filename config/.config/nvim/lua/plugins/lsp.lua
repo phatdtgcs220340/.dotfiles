@@ -3,17 +3,42 @@ return {
         "neovim/nvim-lspconfig",
         lazy = false,
         config = function()
-            -- Attach keymap to noice.nvim for better appearance
+            -- Capabilities (for nvim-cmp, etc.)
+            local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+            -- on_attach: set up keymaps, etc.
             local on_attach = function(_, bufnr)
-                local opts = { buffer = bufnr, desc = "LSP Hover (Noice)" }
-                vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+                local opts = { buffer = bufnr }
+                local map = vim.keymap.set
+
+                map("n", "K", vim.lsp.buf.hover, { buffer = bufnr, desc = "LSP Hover (Noice)" })
+                map("n", "gi", vim.lsp.buf.implementation, opts)
+                map("n", "gd", vim.lsp.buf.definition, opts)
+                map("n", "gD", vim.lsp.buf.declaration, opts)
+                map("n", "gr", vim.lsp.buf.references, opts)
+                map("n", "<leader>rn", vim.lsp.buf.rename, opts)
+                map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+                map("n", "<Leader>f", function()
+                    vim.lsp.buf.format({ async = true })
+                end, { desc = "Format File" })
+
+                -- List symbols (fzf-lua)
+                map("n", "<leader>fm", function()
+                    local ft = vim.bo.filetype
+                    local symbols = ({
+                        javascript = "function",
+                        typescript = "function",
+                        java = "class",
+                        lua = "function",
+                    })[ft] or "function"
+                    require("fzf-lua").lsp_document_symbols({ symbols = symbols })
+                end, { desc = "List Methods (FZF)" })
             end
 
-            local capabilities = require("cmp_nvim_lsp").default_capabilities()
-            local lspconfig = require("lspconfig")
-            -- lua
-            lspconfig.lua_ls.setup({
+            -- Lua
+            vim.lsp.config("lua_ls", {
                 capabilities = capabilities,
+                on_attach = on_attach,
                 settings = {
                     Lua = {
                         diagnostics = {
@@ -23,30 +48,33 @@ return {
                             library = vim.api.nvim_get_runtime_file("", true),
                             checkThirdParty = false,
                         },
-                        telemetry = {
-                            enable = false,
-                        },
+                        telemetry = { enable = false },
                     },
                 },
-                on_attach = on_attach
-            })
-            -- typescript
-            lspconfig.ts_ls.setup({
-                capabilities = capabilities,
-                on_attach = on_attach
             })
 
-            -- go
-            lspconfig.gopls.setup({
+            -- TypeScript / JavaScript
+            vim.lsp.config("ts_ls", {
                 capabilities = capabilities,
-                on_attach = on_attach
+                on_attach = on_attach,
             })
 
-            -- tailwindcss
-            lspconfig.tailwindcss.setup({
+            -- Go
+            vim.lsp.config("gopls", {
+                capabilities = capabilities,
+                on_attach = on_attach,
             })
-            --java
-            lspconfig.jdtls.setup({
+
+            -- TailwindCSS
+            vim.lsp.config("tailwindcss", {
+                capabilities = capabilities,
+                on_attach = on_attach,
+            })
+
+            -- Java (jdtls)
+            vim.lsp.config("jdtls", {
+                capabilities = capabilities,
+                on_attach = on_attach,
                 cmd = { "jdtls", "--jvm-arg=-javaagent:/home/phatdo/.config/jdtls/lombok.jar" },
                 settings = {
                     java = {
@@ -59,61 +87,59 @@ return {
                                 {
                                     name = "JavaSE-21",
                                     path = vim.fn.trim(vim.fn.system("nix eval --raw nixpkgs#jdk21.home")),
-                                }
+                                },
                             },
-                        }
-                    }
+                        },
+                    },
                 },
-                on_attach = on_attach
             })
-            lspconfig.nil_ls.setup({
+
+            -- Nix (nil)
+            vim.lsp.config("nil_ls", {
                 capabilities = capabilities,
+                on_attach = on_attach,
                 settings = {
-                    ['nil'] = {
+                    ["nil"] = {
                         formatting = {
                             command = { "alejandra" },
                         },
                     },
                 },
-                on_attach = on_attach
             })
-            lspconfig.yamlls.setup({
-                capabilities = capabilities,
-                on_attach = on_attach
-            })
-            lspconfig.pyright.setup({
-                capabilities = capabilities,
-                on_attach = on_attach
-            })
-            -- bash
-            lspconfig.bashls.setup({
-                capabilities = capabilities,
-                on_attach = on_attach
-            })
-            -- lsp kepmap setting
 
-            vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {})
-            vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-            vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {})
-            vim.keymap.set("n", "gr", vim.lsp.buf.references, {})
-            vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
-            vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
-            vim.keymap.set('n', '<Leader>f', function()
-                vim.lsp.buf.format { async = true }
-            end, {})
-            -- list all methods in a file
-            -- working with go confirmed, don't know about other, keep changing as necessary
-            vim.keymap.set("n", "<leader>fm", function()
-                local filetype = vim.bo.filetype
-                local symbols_map = {
-                    javascript = "function",
-                    typescript = "function",
-                    java = "class",
-                    lua = "function",
-                }
-                local symbols = symbols_map[filetype] or "function"
-                require("fzf-lua").lsp_document_symbols({ symbols = symbols })
-            end, {})
+            -- YAML
+            vim.lsp.config("yamlls", {
+                capabilities = capabilities,
+                on_attach = on_attach,
+            })
+
+            -- Python
+            vim.lsp.config("pyright", {
+                capabilities = capabilities,
+                on_attach = on_attach,
+            })
+
+            -- Bash
+            vim.lsp.config("bashls", {
+                capabilities = capabilities,
+                on_attach = on_attach,
+            })
+
+            local servers = {
+                "lua_ls",
+                "ts_ls",
+                "gopls",
+                "tailwindcss",
+                "jdtls",
+                "nil_ls",
+                "yamlls",
+                "pyright",
+                "bashls",
+            }
+
+            for _, server in ipairs(servers) do
+                vim.lsp.enable(server)
+            end
         end,
     },
 }
