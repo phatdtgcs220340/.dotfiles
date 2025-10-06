@@ -117,6 +117,7 @@ bindsym XF86AudioMute exec 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'
 
 input "type:keyboard" {
     xkb_options ctrl:nocaps
+    xkb_options "caps:escape"
 }
 
 input "2:7:SynPS/2_Synaptics_TouchPad" {
