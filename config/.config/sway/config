@@ -7,7 +7,7 @@ exec waybar &
 exec exec swaync
 
 # Basic keybindings
-bindsym $mod+Return exec ghostty 
+bindsym $mod+Return exec alacritty
 # Launch Firefox
 bindsym $mod+f exec firefox
 # Close focused window
@@ -136,7 +136,7 @@ gaps inner 10
 
 default_border none
 
-set $term ghostty
+set $term alacritty
 seat * xcursor_theme Bibata-Modern-Ice 24
 
 # Rounded corners
