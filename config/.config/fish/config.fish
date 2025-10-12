@@ -60,8 +60,6 @@ if status is-interactive
 
     set fish_greeting 
 
-    set -x SWAY_BACKGROUND = $HOME/.dotfiles/images/skirk-landscape-1.png
-
     set -x XDG_CURRENT_DESKTOP "sway"
     set -x XDG_SESSION_TYPE "wayland"
     set -x XDG_SESSION_DESKTOP "sway"
@@ -198,10 +196,18 @@ if status is-interactive
         systemctl suspend
     end
 
+    set -x PATH ~/.npm-global/bin $PATH
+
     set -x ANDROID_HOME "$HOME/Android/Sdk"
     set -x PATH "$PATH:$ANDROID_HOME/emulator"
     set -x PATH "$PATH:$ANDROID_HOME/platform-tools"
     set -x XMODIFIERS "@im=ibus"
     set -x GTK_IM_MODULE "ibus"
     set -x QT_IM_MODULE "ibus"
+    set -x WALAU_FE "13.125.160.177"
+    set -x WALAU_BE "15.165.227.10"
+    set -x WALAA "13.124.116.191"
 end
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/phatdo/google-cloud-sdk/path.fish.inc' ]; . '/home/phatdo/google-cloud-sdk/path.fish.inc'; end
