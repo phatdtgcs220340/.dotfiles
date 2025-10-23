@@ -14,7 +14,6 @@
     "clock"
   ],
   "modules-right": [
-    "custom/spotify",
     "pulseaudio",
     "network",
     "battery",
