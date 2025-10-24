@@ -81,12 +81,8 @@ return {
                         configuration = {
                             runtimes = {
                                 {
-                                    name = "JavaSE-17",
-                                    path = vim.fn.trim(vim.fn.system("nix eval --raw nixpkgs#jdk17.home")),
-                                },
-                                {
                                     name = "JavaSE-21",
-                                    path = vim.fn.trim(vim.fn.system("nix eval --raw nixpkgs#jdk21.home")),
+                                    path = vim.env.JAVA_HOME,
                                 },
                             },
                         },
