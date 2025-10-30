@@ -209,5 +209,12 @@ if status is-interactive
     set -x WALAA "13.124.116.191"
 end
 
+# Ensure Fish runs with a controlling TTY
+if status --is-interactive
+    if not test -t 0
+        exec script -q /dev/null fish
+    end
+end
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/phatdo/google-cloud-sdk/path.fish.inc' ]; . '/home/phatdo/google-cloud-sdk/path.fish.inc'; end
