@@ -1,5 +1,5 @@
 general.import = [
-  "~/.config/alacritty/theme/catppuccin-mocha.toml"
+  "~/.config/alacritty/theme/kanagawa-dragon.toml"
 ]
 [env]
 TERM = "xterm-256color"
