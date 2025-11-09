@@ -81,6 +81,9 @@ bindsym $mod+Tab workspace next
 
 bindsym $mod+Shift+Tab workspace prev
 
+# Toggle fullscreen
+bindsym $mod+Shift+f fullscreen toggle
+
 # Toggle between English and Vietnamese Bamboa
 bindsym Ctrl+space exec "if [ $(ibus engine) = Bamboo ]; then ibus engine xkb:us:intl:eng; else ibus engine Bamboo; fi"
 
@@ -120,7 +123,7 @@ input "type:keyboard" {
     xkb_options "caps:escape"
 }
 
-input "2:7:SynPS/2_Synaptics_TouchPad" {
+input "1267:12541:ELAN0712:00_04F3:30FD_Touchpad" {
     dwt enabled
     tap enabled
     middle_emulation enabled
