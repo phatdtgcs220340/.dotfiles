@@ -175,3 +175,10 @@ exec_always {
     export SDL_IM_MODULE=$SDL_IM_MODULE
     export GLFW_IM_MODULE=$GLFW_IM_MODULE
 }
+
+# Set border style, width, and colors
+default_border pixel 1
+
+# Set border colors: <border> <background> <text> <indicator> <child_border>
+client.focused          #815eff #222222 #ffffff #815eff #815eff
+client.unfocused        #444444 #222222 #888888 #444444 #444444
