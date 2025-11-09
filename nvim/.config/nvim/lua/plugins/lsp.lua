@@ -5,6 +5,7 @@ return {
         config = function()
             -- Capabilities (for nvim-cmp, etc.)
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
+            local home_dir = vim.env.HOME
 
             -- on_attach: set up keymaps, etc.
             local on_attach = function(_, bufnr)
@@ -75,7 +76,8 @@ return {
             vim.lsp.config("jdtls", {
                 capabilities = capabilities,
                 on_attach = on_attach,
-                cmd = { "jdtls", "--jvm-arg=-javaagent:/home/phatdo/.config/jdtls/lombok.jar" },
+
+                cmd = { "jdtls", string.format("--jvm-arg=-javaagent:%s/.config/jdtls/lombok.jar", home_dir) },
                 settings = {
                     java = {
                         configuration = {
