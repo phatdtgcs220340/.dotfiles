@@ -14,8 +14,10 @@ bindsym $mod+f exec firefox
 bindsym $mod+q kill               
 # Open wofi
 bindsym $mod+d exec wofi --show drun
+# Toggle waybar
+bindsym $mod+w exec pkill -SIGUSR1 waybar
 # reload waybar
-bindsym $mod+w exec pkill waybar && waybar &
+bindsym $mod+Shift+w exec pkill waybar && waybar &
 
 bindsym Ctrl+Shift+s exec grim -g "$(slurp)" - | swappy -f -
 
