@@ -93,6 +93,8 @@ bindsym Ctrl+space exec "if [ $(ibus engine) = Bamboo ]; then ibus engine xkb:us
 assign [class="Firefox"] workspace B
 assign [class="Ghostty"] workspace C
 
+exec_always mpvpaper '*' ~/.dotfiles/images/wallpapers/gi-shenhe.1920x1080.mp4 -o "no-audio loop"
+
 # Floating windows
 bindsym $mod+Shift+space floating toggle
 # output eDP-1 resolution 1920x1080 rotate normal

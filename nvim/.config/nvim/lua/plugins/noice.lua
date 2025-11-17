@@ -27,7 +27,7 @@ return {
                 },
             },
             messages = {
-                enabled = true,  -- keep normal messages like `:echo`
+                enabled = false,  -- keep normal messages like `:echo`
                 view = "notify", -- or "mini" if you want them in a corner
             },
             notify = {
