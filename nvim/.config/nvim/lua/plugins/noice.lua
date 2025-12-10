@@ -1,6 +1,7 @@
 return {
     "folke/noice.nvim",
     event = "VeryLazy",
+    enabled = true,
     dependencies = {
         { "MunifTanjim/nui.nvim" },
         {
@@ -27,11 +28,11 @@ return {
                 },
             },
             messages = {
-                enabled = false,  -- keep normal messages like `:echo`
-                view = "notify", -- or "mini" if you want them in a corner
+                enabled = true,  -- keep normal messages like `:echo`
+                view = "mini", -- or "mini" if you want them in a corner
             },
             notify = {
-                enabled = false, -- disable native `vim.notify` handling if it’s too noisy
+                enabled = true, -- disable native `vim.notify` handling if it’s too noisy
             },
             presets = {
                 lsp_doc_border = true,
