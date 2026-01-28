@@ -21,6 +21,7 @@ window#waybar {
 #custom-spotify,
 #custom-notification,
 #custom-keyboard,
+#custom-suspend,
 #workspaces,
 #pulseaudio {
   /* background-image: linear-gradient(to bottom, #27232b 100%); */
@@ -34,7 +35,7 @@ window#waybar {
   -webkit-backdrop-filter: blur(10px);
 }
 
-#custom-notification {
+#custom-suspend {
   margin-right: 6px;
 }
 

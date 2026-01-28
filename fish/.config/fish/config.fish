@@ -48,7 +48,12 @@ if status is-interactive
     end
 
     # Java (only works if nix is installed and evaluated here)
-    set -x JAVA_HOME (nix eval --raw nixpkgs#jdk21.home)
+    if test -f ~/.cache/java_home
+        set -x JAVA_HOME (cat ~/.cache/java_home)
+    else
+        set -x JAVA_HOME (nix eval --raw nixpkgs#jdk21.home)
+        echo $JAVA_HOME > ~/.cache/java_home
+    end
     
     function java
         $JAVA_HOME/bin/java $argv
@@ -198,15 +203,9 @@ if status is-interactive
 
     set -x PATH ~/.npm-global/bin $PATH
 
-    set -x ANDROID_HOME "$HOME/Android/Sdk"
-    set -x PATH "$PATH:$ANDROID_HOME/emulator"
-    set -x PATH "$PATH:$ANDROID_HOME/platform-tools"
     set -x XMODIFIERS "@im=ibus"
     set -x GTK_IM_MODULE "ibus"
     set -x QT_IM_MODULE "ibus"
-    set -x WALAU_FE "13.125.160.177"
-    set -x WALAU_BE "15.165.227.10"
-    set -x WALAA "13.124.116.191"
 end
 
 # Ensure Fish runs with a controlling TTY

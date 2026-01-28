@@ -18,7 +18,8 @@
     "network",
     "battery",
     "custom/keyboard",
-    "custom/notification"
+    "custom/notification",
+    "custom/suspend"
   ],
   "sway/workspaces": {
     "disable-scroll": true,
@@ -61,9 +62,13 @@
     "on-click-right": "swaync-client -d -sw",
     "escape": true
   },
+  "custom/suspend": {
+    "format": "😴",
+    "on-click": "~/.config/waybar/suspend.sh"
+  },
   "custom/keyboard": {
     "format": "{}",
-    "on-click" : "~/.config/waybar/switch-keyboard.sh",
+    "on-click": "~/.config/waybar/switch-keyboard.sh",
     "exec": "~/.config/waybar/keyboard.sh",
     "interval": 1
   },
