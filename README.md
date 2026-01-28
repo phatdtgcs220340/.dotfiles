@@ -11,7 +11,6 @@ This is my .dotfiles repository for sharing configuration across using computers
 You may take a look at my nix config workflow to see full download details :D
 
 [Worflow nix config](https://github.com/phatdtgcs220340/nix-config/tree/main/modules/working/workflow)
-
 **GNU Stow**
 
 Each directory is a stow package. Install individual configs with:
@@ -33,3 +32,4 @@ To remove a config:
 stow -D nvim
 ```
 
+[Demo video](https://www.youtube.com/watch?v=JTpX5dNatx8)
