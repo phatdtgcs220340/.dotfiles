@@ -8,7 +8,8 @@
   "margin-right": 20,
   "margin-left": 20,
   "modules-left": [
-    "sway/workspaces"
+    "sway/workspaces",
+    "custom/file"
   ],
   "modules-center": [
     "clock"
@@ -71,6 +72,10 @@
     "on-click": "~/.config/waybar/switch-keyboard.sh",
     "exec": "~/.config/waybar/keyboard.sh",
     "interval": 1
+  },
+  "custom/file": {
+    "format": "󰝰",
+    "on-click": "thunar &"
   },
   "clock": {
     "format": "  {:%H:%M}",

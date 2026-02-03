@@ -22,6 +22,7 @@ window#waybar {
 #custom-notification,
 #custom-keyboard,
 #custom-suspend,
+#custom-file,
 #workspaces,
 #pulseaudio {
   /* background-image: linear-gradient(to bottom, #27232b 100%); */
@@ -75,6 +76,10 @@ window#waybar {
   background-image: linear-gradient(to bottom, #27232b 100%);
   color: #ac82e9;
   font-weight: bold;
+}
+
+#custom-file {
+  padding-right: 10px;
 }
 
 #workspaces button {
